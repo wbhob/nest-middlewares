@@ -31,7 +31,7 @@ describe('CookieSessionMiddleware', () => {
             middleware = new CookieSessionMiddleware();
         });
 
-        it('should should return a middleware from calling resolve', () => {
+        it('should throw error when not given keys', () => {
             expect(middleware.resolve.bind(middleware)).to.throw(Error);
         });
     });
