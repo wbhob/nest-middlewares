@@ -1,12 +1,14 @@
-import { MiddlewareMiddleware } from './index';
+import { CsurfMiddleware } from './index';
 import { expect } from 'chai';
 
-describe('MiddlewareMiddleware', () => {
-    let middleware: MiddlewareMiddleware;
+describe('CsurfMiddleware', () => {
+    let middleware: CsurfMiddleware;
     describe('properly configured', () => {
         beforeEach(() => {
-            MiddlewareMiddleware.configure({});
-            middleware = new MiddlewareMiddleware();
+            CsurfMiddleware.configure({
+                cookie: true,
+            });
+            middleware = new CsurfMiddleware();
         });
 
         it('should be defined', () => {
@@ -21,12 +23,12 @@ describe('MiddlewareMiddleware', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
         afterEach(() => {
-            MiddlewareMiddleware.configure(undefined);
+            CsurfMiddleware.configure(undefined);
         });
     });
 
     describe('not configured', () => {
-        middleware = new MiddlewareMiddleware();
+        middleware = new CsurfMiddleware();
         it('should should return a middleware from calling resolve', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });

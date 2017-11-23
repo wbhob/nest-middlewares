@@ -1,11 +1,8 @@
 {
-  "name": "@nest-middlewares/middleware-name",
+  "name": "@nest-middlewares/csurf",
   "version": "1.0.0",
-  "description": "NestJS middleware for Middleware",
+  "description": "NestJS middleware for CSURF",
   "main": "index",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wbhob/nest-middlewares.git"
@@ -26,6 +23,6 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
-    "cookie-session": "^2.0.0-beta.3"
+    "csurf": "^1.9.0"
   }
 }
