@@ -1,0 +1,31 @@
+{
+  "name": "@nest-middlewares/cors",
+  "version": "1.0.0",
+  "description": "NestJS middleware for Helmet",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbhob/nest-middlewares.git"
+  },
+  "keywords": [
+    "nest",
+    "middlewares",
+    "express",
+    "node"
+  ],
+  "author": "Wilson Hobbs <wilsonhobbs1@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbhob/nest-middlewares/issues"
+  },
+  "homepage": "https://github.com/wbhob/nest-middlewares#readme",
+  "dependencies": {
+    "cors": "^2.8.4"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^4.0.0"
+  }
+}
