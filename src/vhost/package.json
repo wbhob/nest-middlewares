@@ -1,0 +1,28 @@
+{
+  "name": "@nest-middlewares/vhost",
+  "version": "1.0.0",
+  "description": "NestJS Middleware for Virtual Host",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbhob/nest-middlewares.git"
+  },
+  "keywords": [
+    "nest",
+    "middlewares",
+    "express",
+    "node"
+  ],
+  "author": "Wilson Hobbs <wilsonhobbs1@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbhob/nest-middlewares/issues"
+  },
+  "homepage": "https://github.com/wbhob/nest-middlewares#readme",
+  "peerDependencies": {
+    "@nestjs/common": "^4.0.0"
+  },
+  "dependencies": {
+    "vhost": "^3.0.2"
+  }
+}
