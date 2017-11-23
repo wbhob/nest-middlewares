@@ -6,7 +6,6 @@ import { Request, RequestHandler, Response } from 'express';
 @Middleware()
 export class MethodOverrideMiddleware implements NestMiddleware {
 
-    // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS
     public static configure(
         getter: string | ((req: Request, res: Response) => string),
         opts?: methodOverride.MethodOverrideOptions,

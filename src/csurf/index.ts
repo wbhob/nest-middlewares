@@ -6,7 +6,6 @@ import { Request, RequestHandler } from 'express';
 @Middleware()
 export class CsurfMiddleware implements NestMiddleware {
 
-    // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS
     public static configure(opts: CsurfOptions) {
         this.options = opts;
     }
