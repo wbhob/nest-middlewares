@@ -36,6 +36,7 @@
     "@types/cookie-parser": "^1.4.1",
     "@types/cors": "^2.8.3",
     "@types/csurf": "^1.9.35",
+    "@types/errorhandler": "0.0.32",
     "@types/helmet": "0.0.37",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.53",
