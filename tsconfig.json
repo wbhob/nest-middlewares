@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "module": "commonjs",
+        "outDir": "packages",
+        "preserveConstEnums": true,
+        "rootDir": "./src",
+        "baseUrl": ".",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "target": "es6",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es7"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

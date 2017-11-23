@@ -1,0 +1,81 @@
+{
+  "name": "nest-middlewares",
+  "version": "1.0.0",
+  "description": "Common, injectable middlewares for NestJS",
+  "private": true,
+  "scripts": {
+    "build": "sh ./scripts/build.sh",
+    "test": "nyc --require ts-node/register --compilerOptions '{\"rootDir\":\"./src\",\"baseUrl\":\".\",}' mocha src/**/*.spec.ts --reporter spec",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbhob/nest-middlewares.git"
+  },
+  "keywords": [
+    "nest",
+    "middlewares",
+    "express",
+    "node"
+  ],
+  "author": "Wilson Hobbs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbhob/nest-middlewares/issues"
+  },
+  "homepage": "https://github.com/wbhob/nest-middlewares#readme",
+  "devDependencies": {
+    "@nestjs/common": "^4.3.4",
+    "@nestjs/core": "^4.3.4",
+    "@nestjs/microservices": "^4.3.4",
+    "@nestjs/testing": "^4.3.4",
+    "@nestjs/websockets": "^4.3.4",
+    "@types/chai": "^4.0.5",
+    "@types/cors": "^2.8.3",
+    "@types/helmet": "0.0.37",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.53",
+    "@types/sinon": "^4.0.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "import-sort-style-module": "^3.0.0",
+    "lerna": "^2.4.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.5.2",
+    "standard-version": "^4.2.0",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
+  },
+  "importSort": {
+    ".ts, .tsx": {
+      "parser": "typescript",
+      "style": "import-sort-style-module"
+    }
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.spec.ts",
+      "node_modules/",
+      "template/**"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }
+}

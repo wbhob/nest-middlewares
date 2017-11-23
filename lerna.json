@@ -1,0 +1,20 @@
+{
+  "lerna": "2.4.0",
+  "packages": [
+    "packages/*",
+    "src/*"
+  ],
+  "commands": {
+    "publish": {
+      "ignore": [
+        "src/*"
+      ]
+    },
+    "bootstrap": {
+      "ignore": [
+        "packages/*"
+      ]
+    }
+  },
+  "version": "1.0.0"
+}
