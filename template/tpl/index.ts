@@ -14,7 +14,7 @@ export class MiddlewareMiddleware implements NestMiddleware {
 
     private static options: middleware.Options;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (MiddlewareMiddleware.options) {
             return middleware(MiddlewareMiddleware.options);
         } else {
