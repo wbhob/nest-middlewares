@@ -55,7 +55,7 @@
   "importSort": {
     ".ts, .tsx": {
       "parser": "typescript",
-      "style": "import-sort-style-module"
+      "style": "module"
     }
   },
   "nyc": {
