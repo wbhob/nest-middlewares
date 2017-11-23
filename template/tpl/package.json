@@ -1,7 +1,7 @@
 {
   "name": "@nest-middlewares/middleware-name",
   "version": "1.0.0",
-  "description": "NestJS middleware for Middleware",
+  "description": "NestJS Middleware for Middleware",
   "main": "index",
   "repository": {
     "type": "git",
@@ -23,6 +23,6 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
-    "middleware": "1.0.0"
+    "middleware": "^1.0.0"
   }
 }
