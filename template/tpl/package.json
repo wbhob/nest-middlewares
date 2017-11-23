@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "NestJS middleware for Middleware",
   "main": "index",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wbhob/nest-middlewares.git"
@@ -24,5 +21,8 @@
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "peerDependencies": {
     "@nestjs/common": "^4.0.0"
+  },
+  "dependencies": {
+    "middleware": "1.0.0"
   }
 }
