@@ -7,6 +7,7 @@
     "build": "sh ./scripts/build.sh",
     "test": "nyc --require ts-node/register --compilerOptions '{\"rootDir\":\"./src\",\"baseUrl\":\".\",}' mocha src/**/*.spec.ts --reporter spec",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "clean": "sh ./scripts/clean.sh",
     "release": "standard-version"
   },
   "repository": {
@@ -42,6 +43,7 @@
     "@types/mocha": "^2.2.44",
     "@types/morgan": "^1.7.35",
     "@types/node": "^8.0.53",
+    "@types/response-time": "^2.3.2",
     "@types/sinon": "^4.0.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
