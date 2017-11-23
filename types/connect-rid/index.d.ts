@@ -1,10 +1,14 @@
-declare function rid(): void;
-declare function rid(opts: rid.ConnectRidOptions): void;
+declare module 'connect-rid' {
+    import { RequestHandler } from 'express';
 
-declare namespace rid {
-    export interface ConnectRidOptions {
-        headerName?: string;
+    function rid(): RequestHandler;
+    function rid(opts: rid.ConnectRidOptions): RequestHandler;
+
+    namespace rid {
+        interface ConnectRidOptions {
+            headerName?: string;
+        }
     }
-}
 
-export = rid;
+    export = rid;
+}
