@@ -17,7 +17,7 @@ describe('ServeIndexMiddleware', () => {
             expect(middleware.resolve).to.be.instanceof(Function);
         });
 
-        it('should should return a middleware from calling resolve', () => {
+        it('should return a middleware from calling resolve', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
         afterEach(() => {
@@ -27,7 +27,7 @@ describe('ServeIndexMiddleware', () => {
 
     describe('not configured', () => {
         middleware = new ServeIndexMiddleware();
-        it('should should return a middleware from calling resolve', () => {
+        it('should throw for being improperly configured', () => {
             expect(middleware.resolve.bind(middleware)).to.throw(Error);
         });
     });

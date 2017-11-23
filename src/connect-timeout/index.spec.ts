@@ -17,7 +17,7 @@ describe('ConnectTimeoutMiddleware', () => {
             expect(middleware.resolve).to.be.instanceof(Function);
         });
 
-        it('should should return a middleware from calling resolve', () => {
+        it('should return a middleware from calling resolve', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
         afterEach(() => {
@@ -27,7 +27,7 @@ describe('ConnectTimeoutMiddleware', () => {
 
     describe('not configured', () => {
         middleware = new ConnectTimeoutMiddleware();
-        it('should should return a middleware from calling resolve', () => {
+        it('should throw if improperly configured', () => {
             expect(middleware.resolve.bind(middleware)).to.throw(Error);
         });
     });

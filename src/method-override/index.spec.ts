@@ -19,14 +19,14 @@ describe('MethodOverrideMiddleware', () => {
             expect(middleware.resolve).to.be.instanceof(Function);
         });
 
-        it('should should return a middleware from calling resolve', () => {
+        it('should return a middleware from calling resolve', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
     });
 
     describe('not configured', () => {
         middleware = new MethodOverrideMiddleware();
-        it('should should return a middleware from calling resolve', () => {
+        it('should return a middleware from calling resolve', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
     });
