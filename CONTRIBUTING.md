@@ -176,6 +176,7 @@ The scope should be the name of the middleware package affected (as perceived by
 There are currently a few exceptions to the "use package name" rule:
 
 * **packaging**: used for changes that change the npm package layout in all of our packages, e.g. public path changes, package.json changes done to all packages, d.ts file/format changes, changes to bundles, etc.
+* **template**: used to indicate changes made to any of the middleware template files
 * none/empty string: useful for `style`, `test`, `chore`, and `refactor` changes that are done across all packages (e.g. `style: add missing semicolons`)
 
 ### Subject

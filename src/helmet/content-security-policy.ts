@@ -15,8 +15,7 @@ export class HelmetContentSecurityPolicyMiddleware implements NestMiddleware {
 
     public resolve(...args: any[]) {
         if (HelmetContentSecurityPolicyMiddleware.options) {
-            return helmet.contentSecurityPolicy(
-                HelmetContentSecurityPolicyMiddleware.options);
+            return helmet.contentSecurityPolicy(HelmetContentSecurityPolicyMiddleware.options);
         } else {
             throw new Error(
                 'HelmetContentSecurityPolicyMiddleware requires you'

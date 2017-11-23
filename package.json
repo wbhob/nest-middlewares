@@ -32,6 +32,7 @@
     "@nestjs/testing": "^4.3.4",
     "@nestjs/websockets": "^4.3.4",
     "@types/chai": "^4.0.5",
+    "@types/compression": "0.0.35",
     "@types/cors": "^2.8.3",
     "@types/helmet": "0.0.37",
     "@types/mocha": "^2.2.44",

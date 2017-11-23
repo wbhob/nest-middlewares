@@ -23,14 +23,14 @@ describe('HelmetContentSecurityPolicyMiddleware', () => {
         });
 
         it('should should return a middleware from calling resolve', () => {
-            expect(middleware.resolve.bind(middleware)).to.be.an.instanceof(Function);
+            expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
         afterEach(() => {
             HelmetContentSecurityPolicyMiddleware.configure(undefined);
         });
     });
 
-    describe('middleware properly configured', () => {
+    describe('not configured', () => {
         beforeEach(() => {
             middleware = new HelmetContentSecurityPolicyMiddleware();
         });

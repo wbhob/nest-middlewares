@@ -1,15 +1,12 @@
-import { CorsMiddleware } from './index';
+import { MiddlewareMiddleware } from './index';
 import { expect } from 'chai';
 
-describe('CorsMiddleware', () => {
-    let middleware: CorsMiddleware;
-
-    describe('middleware configured', () => {
+describe('MiddlewareMiddleware', () => {
+    let middleware: MiddlewareMiddleware;
+    describe('properly configured', () => {
         beforeEach(() => {
-            CorsMiddleware.configure({
-                maxAge: 4354,
-            });
-            middleware = new CorsMiddleware();
+            MiddlewareMiddleware.configure({});
+            middleware = new MiddlewareMiddleware();
         });
 
         it('should be defined', () => {
@@ -24,16 +21,13 @@ describe('CorsMiddleware', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
         afterEach(() => {
-            CorsMiddleware.configure(undefined);
+            MiddlewareMiddleware.configure(undefined);
         });
     });
 
     describe('not configured', () => {
-        beforeEach(() => {
-            middleware = new CorsMiddleware();
-        });
-
-        it('should throw an error for not being configured', () => {
+        middleware = new MiddlewareMiddleware();
+        it('should should return a middleware from calling resolve', () => {
             expect(middleware.resolve()).to.be.an.instanceof(Function);
         });
     });
