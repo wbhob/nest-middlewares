@@ -8,6 +8,7 @@ for D in *; do
         cd ${D}
         mkdir ../../packages/${D}
         cp ./package.json ../../packages/${D}/package.json
+        cp ./package-lock.json ../../packages/${D}/package-lock.json
         cd ../
     fi
 done

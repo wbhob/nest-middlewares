@@ -12,7 +12,7 @@ export class CsurfMiddleware implements NestMiddleware {
 
     private static options: CsurfOptions;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (CsurfMiddleware.options) {
             return csurf(CsurfMiddleware.options);
         } else {
