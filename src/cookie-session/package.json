@@ -1,0 +1,31 @@
+{
+  "name": "@nest-middlewares/middleware-name",
+  "version": "1.0.0",
+  "description": "NestJS middleware for Middleware",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbhob/nest-middlewares.git"
+  },
+  "keywords": [
+    "nest",
+    "middlewares",
+    "express",
+    "node"
+  ],
+  "author": "Wilson Hobbs <wilsonhobbs1@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbhob/nest-middlewares/issues"
+  },
+  "homepage": "https://github.com/wbhob/nest-middlewares#readme",
+  "peerDependencies": {
+    "@nestjs/common": "^4.0.0"
+  },
+  "dependencies": {
+    "cookie-session": "^2.0.0-beta.3"
+  }
+}
