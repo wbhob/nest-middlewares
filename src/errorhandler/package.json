@@ -1,7 +1,7 @@
 {
   "name": "@nest-middlewares/errorhandler",
   "version": "1.0.0",
-  "description": "NestJS middleware for Error Handler",
+  "description": "NestJS Middleware for Error Handler",
   "main": "index",
   "repository": {
     "type": "git",

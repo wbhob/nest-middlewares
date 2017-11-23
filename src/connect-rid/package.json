@@ -1,7 +1,7 @@
 {
   "name": "@nest-middlewares/connect-rid",
   "version": "1.0.0",
-  "description": "NestJS middleware for Connect RID",
+  "description": "NestJS Middleware for Connect RID",
   "main": "index",
   "repository": {
     "type": "git",

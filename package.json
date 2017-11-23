@@ -38,6 +38,7 @@
     "@types/csurf": "^1.9.35",
     "@types/errorhandler": "0.0.32",
     "@types/helmet": "0.0.37",
+    "@types/method-override": "0.0.31",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.53",
     "@types/sinon": "^4.0.0",

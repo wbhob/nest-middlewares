@@ -1,7 +1,7 @@
 {
   "name": "@nest-middlewares/cookie-session",
   "version": "1.0.0",
-  "description": "NestJS middleware for Cookie Session",
+  "description": "NestJS Middleware for Cookie Session",
   "main": "index",
   "repository": {
     "type": "git",
