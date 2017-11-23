@@ -31,4 +31,15 @@ describe('MorganMiddleware', () => {
     afterEach(() => {
         MorganMiddleware.configure(undefined);
     });
+
+    describe('token generation', () => {
+        it('should create a token when calling token()', () => {
+            MorganMiddleware.configure(':type');
+            MorganMiddleware.token('type', () => {
+                return 'hello';
+            });
+            middleware = new MorganMiddleware();
+            expect(middleware.resolve.bind(middleware)).to.not.throw();
+        });
+    });
 });

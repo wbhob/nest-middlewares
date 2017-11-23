@@ -7,10 +7,13 @@ import { RequestHandler } from 'express';
 @Middleware()
 export class MorganMiddleware implements NestMiddleware {
 
-    // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS
     public static configure(format: string | morgan.FormatFn, opts?: morgan.Options) {
         this.format = format;
         this.options = opts;
+    }
+
+    public static token(name: string, callback: morgan.TokenCallbackFn): morgan.Morgan {
+        return morgan.token(name, callback);
     }
 
     private static options: morgan.Options;
