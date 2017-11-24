@@ -19,5 +19,12 @@
   "npmClientArgs": [
     "--access public"
   ],
-  "version": "1.0.0"
+  "changelog": {
+    "labels": {
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix"
+    },
+    "cacheDir": ".changelog"
+  },
+  "version": "1.0.1"
 }
