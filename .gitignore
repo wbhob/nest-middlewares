@@ -59,6 +59,7 @@ typings/
 .env
 
 # Built files
-packages/**/*.js
-packages/**/*.map
-packages/**/*.d.ts
+*.js
+*.map
+*.d.ts
+!types/**/*.d.ts
