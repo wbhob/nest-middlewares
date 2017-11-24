@@ -57,6 +57,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-# this is ignored because Lerna handles this for us
-packages

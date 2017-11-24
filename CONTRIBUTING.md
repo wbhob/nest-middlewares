@@ -1,6 +1,8 @@
 ## Contributing Guidelines for Nest Middlewares
 Thanks for your intrest in contributing to Nest Middlewares. This is a great and easy way to give back to the Nest community if dabbling with the Nest Core seems a little bit daunting. This document outlines the guidelines for your contribution.
 
+**NOTE:** DO _NOT_ MAKE CHANGES DIRECTLY TO `packages/`
+
 #### Table of Contents
 1. [Definitions](#definitions)
 1. [Style Guide](#style-guide)

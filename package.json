@@ -25,6 +25,9 @@
   "bugs": {
     "url": "https://github.com/wbhob/nest-middlewares/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "devDependencies": {
     "@nestjs/common": "^4.3.4",

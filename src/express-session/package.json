@@ -15,6 +15,10 @@
   ],
   "author": "Wilson Hobbs <wilsonhobbs1@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
   "bugs": {
     "url": "https://github.com/wbhob/nest-middlewares/issues"
   },
