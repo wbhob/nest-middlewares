@@ -1,6 +1,6 @@
 {
   "name": "nest-middlewares",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Common, injectable middlewares for NestJS",
   "private": true,
   "scripts": {
