@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/express-session",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NestJS Middleware for Express Session",
   "main": "index",
   "repository": {

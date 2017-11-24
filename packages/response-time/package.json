@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/response-time",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NestJS Middleware for Response Time",
   "main": "index",
   "repository": {

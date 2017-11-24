@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/csurf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NestJS Middleware for CSURF",
   "main": "index",
   "repository": {

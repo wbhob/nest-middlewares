@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/vhost",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NestJS Middleware for Virtual Host",
   "main": "index",
   "repository": {
