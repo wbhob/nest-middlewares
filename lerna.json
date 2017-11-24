@@ -1,28 +1,17 @@
 {
   "lerna": "2.4.0",
   "packages": [
-    "packages/*",
-    "src/*"
+    "packages/*"
   ],
-  "commands": {
-    "publish": {
-      "ignore": [
-        "src/*"
-      ]
-    },
-    "bootstrap": {
-      "ignore": [
-        "packages/*"
-      ]
-    }
-  },
   "npmClientArgs": [
     "--access public"
   ],
   "changelog": {
     "labels": {
-      "enhancement": ":rocket: Enhancement",
-      "bug": ":bug: Bug Fix"
+      "enhancement": "Enhancements",
+      "bug": "Bug Fixes",
+      "feat": "Features",
+      "refactor": "Code Refactors"
     },
     "cacheDir": ".changelog"
   },

@@ -57,3 +57,8 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Built files
+packages/**/*.js
+packages/**/*.map
+packages/**/*.d.ts

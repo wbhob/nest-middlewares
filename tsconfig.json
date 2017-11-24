@@ -2,9 +2,7 @@
     "compilerOptions": {
         "declaration": true,
         "module": "commonjs",
-        "outDir": "packages",
         "preserveConstEnums": true,
-        "rootDir": "./src",
         "baseUrl": ".",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -19,7 +17,7 @@
         ]
     },
     "include": [
-        "src/**/*"
+        "packages/**/*"
     ],
     "exclude": [
         "node_modules",
