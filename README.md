@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/wbhob/nest-middlewares/badge.svg?branch=master)](https://coveralls.io/github/wbhob/nest-middlewares?branch=master)
 # Nest Middlewares
 Add the most common Express middlewares to your Nest app with one line.
 
