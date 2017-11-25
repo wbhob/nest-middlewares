@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "sh ./scripts/build.sh",
-    "test": "nyc --require ts-node/register --compilerOptions '{\"rootDir\":\"./src\",\"baseUrl\":\".\",}' mocha src/**/*.spec.ts --reporter spec",
+    "test": "nyc --require ts-node/register --compilerOptions '{\"rootDir\":\"./src\",\"baseUrl\":\".\",}' mocha packages/**/*.spec.ts --reporter spec",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "clean": "sh ./scripts/clean.sh"
   },
@@ -73,7 +73,7 @@
   },
   "nyc": {
     "include": [
-      "src/**/*.ts"
+      "packages/**/*.ts"
     ],
     "exclude": [
       "**/*.spec.ts",

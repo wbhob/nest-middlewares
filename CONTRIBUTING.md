@@ -30,16 +30,16 @@ ALWAYS use this folder structure
 ```
 .
 ├── node_modules
-├── packages
 ├── scripts
-├── src
+├── packages
     └── your-middleware
         ├── index.ts
+        ├── index.spec.ts
         └── package.json
 └── template
 ```
 
-NEVER commit `packages` or `node_modules`.
+NEVER commit built files or `node_modules`.
 CONSIDER using the [template guide](./template/USING_TEMPLATE.md) to build your middleware.
 
 ALWAYS put your middleware as a direct child of `src`.
