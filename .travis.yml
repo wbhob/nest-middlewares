@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - '6'
+  - '8'
+  - node
+addons:
+  firefox: latest
+cache:
+  directories:
+    - node_modules
+before_script:
+  - npm install -g lerna typescript
+  - npm run clean
+  - lerna bootstrap
+script:
+  - npm run build
+  - npm test
+after_success: npm run coverage
