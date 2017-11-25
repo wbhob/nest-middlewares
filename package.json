@@ -6,7 +6,7 @@
   "scripts": {
     "build": "sh ./scripts/build.sh",
     "test": "nyc --require ts-node/register --compilerOptions '{\"rootDir\":\"./src\",\"baseUrl\":\".\",}' mocha packages/**/*.spec.ts --reporter spec",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
     "clean": "sh ./scripts/clean.sh"
   },
   "repository": {
