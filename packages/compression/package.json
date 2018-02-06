@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "dependencies": {
+    "@types/compression": "0.0.35",
     "compression": "^1.7.1"
   },
   "peerDependencies": {

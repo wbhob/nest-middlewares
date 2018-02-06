@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/connect-timeout": "0.0.33",
     "connect-timeout": "^1.9.0"
   }
 }

@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/cookie-parser": "^1.4.1",
     "cookie-parser": "^1.4.3"
   }
 }

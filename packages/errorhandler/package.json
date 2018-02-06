@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/errorhandler": "0.0.32",
     "errorhandler": "^1.5.0"
   }
 }

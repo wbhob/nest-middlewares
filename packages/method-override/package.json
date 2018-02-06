@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/method-override": "0.0.31",
     "method-override": "^2.3.10"
   }
 }

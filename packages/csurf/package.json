@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/csurf": "^1.9.35",
     "csurf": "^1.9.0"
   }
 }

@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/express-session": "^1.15.7",
     "express-session": "^1.15.6"
   }
 }

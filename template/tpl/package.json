@@ -1,5 +1,5 @@
 {
-  "name": "@nest-middlewares/middleware-name",
+  "name": "@nest-middlewares/middleware",
   "version": "1.0.0",
   "description": "NestJS Middleware for Middleware",
   "main": "index",
@@ -23,6 +23,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
-    "middleware": "^1.0.0"
+    "middleware": "^1.0.0",
+    "@types/middleware": "^1.0.0"
   }
 }

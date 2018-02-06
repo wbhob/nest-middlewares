@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/serve-index": "^1.7.29",
     "serve-index": "^1.9.1"
   }
 }

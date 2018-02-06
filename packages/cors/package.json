@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "dependencies": {
+    "@types/cors": "^2.8.3",
     "cors": "^2.8.4"
   },
   "peerDependencies": {

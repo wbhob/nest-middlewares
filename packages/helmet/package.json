@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "dependencies": {
+    "@types/helmet": "0.0.37",
     "helmet": "^3.9.0"
   },
   "peerDependencies": {

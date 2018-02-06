@@ -27,6 +27,7 @@
     "@nestjs/common": "^4.0.0"
   },
   "dependencies": {
+    "@types/serve-favicon": "^2.2.30",
     "serve-favicon": "^2.4.5"
   }
 }
