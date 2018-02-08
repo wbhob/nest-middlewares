@@ -1,8 +1,6 @@
-import * as bearerToken from 'express-bearer-token';
-
 import { Middleware, NestMiddleware } from '@nestjs/common';
-
 import { RequestHandler } from 'express';
+import * as bearerToken from 'express-bearer-token';
 
 @Middleware()
 export class ExpressBearerTokenMiddleware implements NestMiddleware {
@@ -22,5 +20,3 @@ export class ExpressBearerTokenMiddleware implements NestMiddleware {
         }
     }
 }
-
-

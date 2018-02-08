@@ -1,8 +1,6 @@
-import * as helmet from 'helmet';
-
 import { Middleware, NestMiddleware } from '@nestjs/common';
-
 import { RequestHandler } from 'express';
+import * as helmet from 'helmet';
 
 @Middleware()
 export class HelmetReferrerPolicyMiddleware implements NestMiddleware {
@@ -12,7 +10,6 @@ export class HelmetReferrerPolicyMiddleware implements NestMiddleware {
     }
 
     private static options: helmet.IHelmetReferrerPolicyConfiguration;
-
 
     public resolve(...args: any[]) {
         if (HelmetReferrerPolicyMiddleware.options) {

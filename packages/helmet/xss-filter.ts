@@ -1,8 +1,6 @@
-import * as helmet from 'helmet';
-
 import { Middleware, NestMiddleware } from '@nestjs/common';
-
 import { RequestHandler } from 'express';
+import * as helmet from 'helmet';
 
 @Middleware()
 export class HelmetXssFilterMiddleware implements NestMiddleware {
@@ -12,7 +10,6 @@ export class HelmetXssFilterMiddleware implements NestMiddleware {
     }
 
     private static options: helmet.IHelmetXssFilterConfiguration;
-
 
     public resolve(...args: any[]) {
         if (HelmetXssFilterMiddleware.options) {

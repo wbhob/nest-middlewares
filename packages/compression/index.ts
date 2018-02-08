@@ -13,7 +13,6 @@ export class CompressionMiddleware implements NestMiddleware {
 
     private static options: compression.CompressionOptions;
 
-
     public resolve(...args: any[]) {
         if (CompressionMiddleware.options) {
             return compression(CompressionMiddleware.options);

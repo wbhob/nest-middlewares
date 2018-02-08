@@ -1,7 +1,6 @@
-import * as errorhandler from 'errorhandler';
-
-import { ErrorRequestHandler, RequestHandler } from 'express';
 import { Middleware, NestMiddleware } from '@nestjs/common';
+import * as errorhandler from 'errorhandler';
+import { ErrorRequestHandler, RequestHandler } from 'express';
 
 @Middleware()
 export class ErrorHandlerMiddleware implements NestMiddleware {

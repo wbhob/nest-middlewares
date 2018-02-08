@@ -1,13 +1,11 @@
-import * as serveStatic from 'serve-static';
-
 import { Middleware, NestMiddleware } from '@nestjs/common';
-
 import { RequestHandler } from 'express';
+import * as serveStatic from 'serve-static';
 
 @Middleware()
 export class ServeStaticMiddleware implements NestMiddleware {
 
-    public static configure(root: string, opts?: serveStatic.ServeStaticOptions){
+    public static configure(root: string, opts?: serveStatic.ServeStaticOptions) {
         this.root = root;
         this.options = opts;
     }
