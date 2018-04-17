@@ -16,7 +16,7 @@ export class ConnectTimeoutMiddleware implements NestMiddleware {
     private static options: connectTimeout.TimeoutOptions;
 
     public resolve(...args: any[]): RequestHandler {
-        if (ConnectTimeoutMiddleware.options) {
+        if (ConnectTimeoutMiddleware.timeout) {
             return connectTimeout(ConnectTimeoutMiddleware.timeout, ConnectTimeoutMiddleware.options);
         } else {
             throw new Error('ConnectTimeoutMiddleware requires a timeout string in configure.');
