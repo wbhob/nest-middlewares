@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/cookie-parser",
-  "version": "1.1.1",
+  "version": "5.0.0",
   "description": "NestJS Middleware for Cookie Parser",
   "main": "index",
   "repository": {
