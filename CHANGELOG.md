@@ -2,6 +2,11 @@
 # [5.0.0](https://github.com/wbhob/nest-middlewares/compare/v1.1.1...v5.0.0) (2018-06-18)
 
 
+### Bug Fixes
+
+* update to support Nest v5 ([5198fb6](https://github.com/wbhob/nest-middlewares/commit/5198fb6))
+
+
 
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/wbhob/nest-middlewares/compare/v1.1.0...v1.1.1) (2018-02-08)
