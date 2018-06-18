@@ -1,3 +1,8 @@
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/wbhob/nest-middlewares/compare/v5.0.0...v5.0.1) (2018-06-18)
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/wbhob/nest-middlewares/compare/v1.1.1...v5.0.0) (2018-06-18)
 
