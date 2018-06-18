@@ -1,8 +1,8 @@
-import { Middleware, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import { RequestHandler } from 'express';
 import * as bearerToken from 'express-bearer-token';
 
-@Middleware()
+@Injectable()
 export class ExpressBearerTokenMiddleware implements NestMiddleware {
 
     // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS

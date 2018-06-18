@@ -50,15 +50,16 @@ WHY? Ensuring that all middlewares have the same folder structures makes it easy
 WHY? Having the same package name makes it easy for other developers to find the middleware.
 WHY? Most middlewares will have just one file, so having additional files creates headache and confusion.
 
-
 #### Dependency Management
+
 NEVER save `dependencies` to the root package.json, or save `devDependencies` to an individual middleware's `package.json`.
 ALWAYS save package `dependencies` to its respective package, and save `devDependencies` to the root package.json.
-ALWAYS keep `@nestjs/common@^4.0.0` as a peerDependency of EVERY middleware. This will be updated as Nest major versions are incremented.
+ALWAYS keep `@nestjs/common@^5.0.0` as a peerDependency of EVERY middleware. This will be updated as Nest major versions are incremented.
 WHY? The `lerna` tool and NPM will always install `dependencies` from child `package.json` files, but not `devDependencies`. To reduce clutter, only keep packages that middlewares DIRECTLY DEPEND ON in their respective `package.json` files.
 WHY? Making sure that all middlewares have the same Nest dependency ensures consistency for consumers, and ensures the most possible users without breaking changes.
 
 #### Naming
+
 ALWAYS PascalCase the name of your middleware class.
 ALWAYS end your middleware classnames with `Middleware`.
 ALWAYS add additional description words between the middleware name and `Middleware` when providing additional middlewares (for example, `HelmetNoCacheMiddleware` or `HelmetFrameguardMiddleware`).
@@ -74,6 +75,7 @@ BAD - `HlmtMiddleware`, `HelmetMddlwre`, or `HelmetMw`
 BAD - `NoCacheHelmetMiddleware`, `HelmetMiddlewareNoCache`, or `NoCacheMiddleware`
 
 #### Additional Middlewares
+
 CONSIDER moving middlewares with additional functionality to other files.
 ALWAYS keep the core middleware in `index.ts`.
 ALWAYS export non-core middlewares through `index.ts`.
@@ -90,16 +92,18 @@ BAD - `no-cache.middleware.ts`
 BAD - `no_cache.ts`, `nocache.ts`, `noCache.ts`, or `NO_CACHE.ts`
 
 #### Middleware File Design
+
 ALWAYS use the same name for the import for the package name. If the package name is hyphenated, use camelCase.
 CONSIDER having exactly one method in each class, `resolve`.
 ALWAYS implement the `NestMiddleware` interface.
 ALWAYS use the shorthand factory whenever possible (for example, use `return helmet()` rather than `return (req, req, next) => helmet()(req, res, next)`).
-ALWAYS decorate your middleware with `@Middleware()`.
+ALWAYS decorate your middleware with `@Injectable()`.
 
 GOOD - `import * as bodyParser from 'body-parser';`
 BAD - `import * as BodyParser or body_parser or BODYPARSER from 'body-parser'`.
 
 GOOD:
+
 ```ts
 public resolve(...args: any[]) {
     return helmet();
@@ -107,6 +111,7 @@ public resolve(...args: any[]) {
 ```
 
 BAD:
+
 ```ts
 public resolve(...args: any[]) {
     return (req, res, next) => helmet()(req, res, next);
@@ -114,6 +119,7 @@ public resolve(...args: any[]) {
 ```
 
 #### Miscellaneous Styles
+
 ALWAYS use single quotation marks ('), not double (").
 ALWAYS sort imports alphabetically.
 ALWAYS use one space before and after the last named import (ex. `{ NestMiddleware }`);
@@ -126,6 +132,7 @@ readable messages** that are easy to follow when looking through the **project h
 we use the git commit messages to **generate the Angular change log**.
 
 ### Commit Message Format
+
 Each commit message consists of a **header**, a **body** and a **footer**.  The header has a special
 format that includes a **type**, a **scope** and a **subject**:
 
@@ -149,6 +156,7 @@ Samples: (even more [samples](https://github.com/angular/angular/commits/master)
 ```
 docs(changelog): update change log to beta.5
 ```
+
 ```
 fix(release): need to depend on latest rxjs and zone.js
 
@@ -156,9 +164,11 @@ The version in our package.json gets copied to the one we publish, and users nee
 ```
 
 ### Revert
+
 If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
 ### Type
+
 Must be one of the following:
 
 * **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)

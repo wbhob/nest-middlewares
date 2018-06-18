@@ -1,10 +1,8 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
-
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
 import { RequestHandler } from 'express';
 
-@Middleware()
+@Injectable()
 export class CookieParserMiddleware implements NestMiddleware {
 
     // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS
@@ -18,7 +16,7 @@ export class CookieParserMiddleware implements NestMiddleware {
     private static secret: string | string[];
     private static options: cookieParser.CookieParseOptions;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (CookieParserMiddleware.secret) {
             return cookieParser(CookieParserMiddleware.secret, CookieParserMiddleware.options);
         } else {

@@ -1,5 +1,5 @@
-<a name="1.0.0"></a>
-# [1.0.0](https://github.com/wbhob/nest-middlewares/compare/v1.1.1...v1.0.0) (2018-02-08)
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/wbhob/nest-middlewares/compare/v1.1.1...v5.0.0) (2018-06-18)
 
 
 

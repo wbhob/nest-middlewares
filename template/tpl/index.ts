@@ -1,10 +1,8 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from 'express';
 import * as middleware from 'middleware';
 
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
-import { RequestHandler } from 'express';
-
-@Middleware()
+@Injectable()
 export class MiddlewareMiddleware implements NestMiddleware {
 
     // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS

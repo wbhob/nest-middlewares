@@ -1,10 +1,8 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from 'express';
 import * as serveIndex from 'serve-index';
 
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
-import { RequestHandler } from 'express';
-
-@Middleware()
+@Injectable()
 export class ServeIndexMiddleware implements NestMiddleware {
 
     public static configure(path: string, opts?: serveIndex.Options) {

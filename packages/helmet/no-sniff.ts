@@ -1,12 +1,10 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from 'express';
 import * as helmet from 'helmet';
 
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
-import { RequestHandler } from 'express';
-
-@Middleware()
+@Injectable()
 export class HelmetNoSniffMiddleware implements NestMiddleware {
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         return helmet.noSniff();
     }
 }

@@ -1,10 +1,8 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from 'express';
 import * as morgan from 'morgan';
 
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
-import { RequestHandler } from 'express';
-
-@Middleware()
+@Injectable()
 export class MorganMiddleware implements NestMiddleware {
 
     public static configure(format: string | morgan.FormatFn, opts?: morgan.Options) {

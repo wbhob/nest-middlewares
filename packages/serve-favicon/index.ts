@@ -1,10 +1,8 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from 'express';
 import * as serveFavicon from 'serve-favicon';
 
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
-import { RequestHandler } from 'express';
-
-@Middleware()
+@Injectable()
 export class ServeFaviconMiddleware implements NestMiddleware {
 
     public static configure(path: string, opts?: ServeFaviconOptions) {

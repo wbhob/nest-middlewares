@@ -1,8 +1,8 @@
-import { Middleware, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as errorhandler from 'errorhandler';
-import { ErrorRequestHandler, RequestHandler } from 'express';
+import { RequestHandler } from 'express';
 
-@Middleware()
+@Injectable()
 export class ErrorHandlerMiddleware implements NestMiddleware {
 
     public static configure(opts: errorhandler.Options) {

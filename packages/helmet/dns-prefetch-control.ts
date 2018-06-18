@@ -1,10 +1,8 @@
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from 'express';
 import * as helmet from 'helmet';
 
-import { Middleware, NestMiddleware } from '@nestjs/common';
-
-import { RequestHandler } from 'express';
-
-@Middleware()
+@Injectable()
 export class HelmetDnsPrefetchControlMiddleware implements NestMiddleware {
 
     public static configure(opts: helmet.IHelmetDnsPrefetchControlConfiguration) {
@@ -13,7 +11,7 @@ export class HelmetDnsPrefetchControlMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetDnsPrefetchControlConfiguration;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (HelmetDnsPrefetchControlMiddleware.options) {
             return helmet.dnsPrefetchControl(HelmetDnsPrefetchControlMiddleware.options);
         } else {

@@ -1,8 +1,8 @@
-import { Middleware, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import { RequestHandler } from 'express';
 import * as serveStatic from 'serve-static';
 
-@Middleware()
+@Injectable()
 export class ServeStaticMiddleware implements NestMiddleware {
 
     public static configure(root: string, opts?: serveStatic.ServeStaticOptions) {
