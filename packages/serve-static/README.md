@@ -21,7 +21,7 @@ import { ServeStaticMiddleware } from '@nest-middlewares/serve-static';
 export class MyModule {
     configure(consumer: MiddlewaresConsumer) {
         // IMPORTANT! Call Middleware.configure BEFORE using it for routes
-        HelmetMiddleware.configure( /* options as per helmet docs */ )
+        ServeStaticMiddleware.configure( /* options as per helmet docs */ )
         consumer.apply(ServeStaticMiddleware).forRoutes( /* your routes */ );
     }
 }
