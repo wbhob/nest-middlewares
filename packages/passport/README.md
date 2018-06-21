@@ -1,4 +1,4 @@
-# Nest Middlewares - Cookie Parser
+# Nest Middlewares - Passport
 
 [![Coverage Status](https://coveralls.io/repos/github/wbhob/nest-middlewares/badge.svg?branch=master)](https://coveralls.io/github/wbhob/nest-middlewares?branch=master)
 
