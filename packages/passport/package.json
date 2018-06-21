@@ -1,0 +1,33 @@
+{
+  "name": "@nest-middlewares/passport",
+  "version": "5.0.0",
+  "description": "NestJS Middleware for Passport",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbhob/nest-middlewares.git"
+  },
+  "keywords": [
+    "nest",
+    "middlewares",
+    "passport",
+    "node"
+  ],
+  "author": "Wilson Hobbs <wilsonhobbs1@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/wbhob/nest-middlewares/issues"
+  },
+  "homepage": "https://github.com/wbhob/nest-middlewares#readme",
+  "peerDependencies": {
+    "@nestjs/common": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/passport": "^0.4.5",
+    "passport": "^0.4.0"
+  }
+}
