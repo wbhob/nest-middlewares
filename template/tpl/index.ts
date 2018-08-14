@@ -1,5 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { RequestHandler } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as middleware from 'middleware';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class MiddlewareMiddleware implements NestMiddleware {
 
     private static options: middleware.Options;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (MiddlewareMiddleware.options) {
             return middleware(MiddlewareMiddleware.options);
         } else {

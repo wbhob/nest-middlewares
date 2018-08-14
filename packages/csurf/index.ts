@@ -1,6 +1,6 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as csurf from 'csurf';
-import { Request, RequestHandler } from 'express';
+import { Request } from 'express';
 
 @Injectable()
 export class CsurfMiddleware implements NestMiddleware {
@@ -11,7 +11,7 @@ export class CsurfMiddleware implements NestMiddleware {
 
     private static options: CsurfOptions;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (CsurfMiddleware.options) {
             return csurf(CsurfMiddleware.options);
         } else {

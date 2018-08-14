@@ -1,5 +1,5 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { Request, RequestHandler, Response } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Request, Response } from 'express';
 import * as methodOverride from 'method-override';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class MethodOverrideMiddleware implements NestMiddleware {
     private static options: methodOverride.MethodOverrideOptions;
     private static getter: string | ((req: Request, res: Response) => string);
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (MethodOverrideMiddleware.options) {
             return methodOverride(MethodOverrideMiddleware.getter, MethodOverrideMiddleware.options);
         } else {

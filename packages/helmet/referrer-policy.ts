@@ -1,5 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { RequestHandler } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -11,7 +10,7 @@ export class HelmetReferrerPolicyMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetReferrerPolicyConfiguration;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (HelmetReferrerPolicyMiddleware.options) {
             return helmet.referrerPolicy(HelmetReferrerPolicyMiddleware.options);
         } else {

@@ -1,8 +1,8 @@
-declare module 'express-bearer-token' {
-    import { RequestHandler } from 'express';
+import { RequestHandler } from 'express';
 
-    function bearerToken(): RequestHandler;
-    function bearerToken(opts: bearerToken.Options): RequestHandler;
+declare module 'express-bearer-token' {
+    
+    function bearerToken(opts?: bearerToken.Options): RequestHandler;
 
     namespace bearerToken {
         export interface Options {

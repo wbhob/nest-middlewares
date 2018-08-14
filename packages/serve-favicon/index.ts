@@ -1,5 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { RequestHandler } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as serveFavicon from 'serve-favicon';
 
 @Injectable()
@@ -13,7 +12,7 @@ export class ServeFaviconMiddleware implements NestMiddleware {
     private static path: string;
     private static options: ServeFaviconOptions;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (ServeFaviconMiddleware.path) {
             return serveFavicon(ServeFaviconMiddleware.path, ServeFaviconMiddleware.options);
         } else {

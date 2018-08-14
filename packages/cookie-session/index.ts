@@ -1,6 +1,5 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as cookieSession from 'cookie-session';
-import { RequestHandler } from 'express';
 
 @Injectable()
 export class CookieSessionMiddleware implements NestMiddleware {
@@ -12,7 +11,7 @@ export class CookieSessionMiddleware implements NestMiddleware {
 
     private static options: cookieSession.CookieSessionOptions;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (CookieSessionMiddleware.options && CookieSessionMiddleware.options.keys) {
             return cookieSession(CookieSessionMiddleware.options);
         } else {

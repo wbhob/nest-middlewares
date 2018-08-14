@@ -1,6 +1,5 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import { authenticate } from 'passport';
-import { RequestHandler } from 'express-serve-static-core';
 
 @Injectable()
 export class PassportAuthenticateMiddleware implements NestMiddleware {
@@ -9,7 +8,7 @@ export class PassportAuthenticateMiddleware implements NestMiddleware {
         this.options = opts;
     }
 
-    public resolve(types: string | string[], options: any): RequestHandler {
+    public resolve(types: string | string[], options: any): MiddlewareFunction {
         return authenticate(types, options);
     }
 }

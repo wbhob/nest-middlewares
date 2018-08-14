@@ -1,5 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { RequestHandler } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as serveStatic from 'serve-static';
 
 @Injectable()
@@ -13,7 +12,7 @@ export class ServeStaticMiddleware implements NestMiddleware {
     private static root: string;
     private static options: serveStatic.ServeStaticOptions;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (ServeStaticMiddleware.root) {
             return serveStatic(ServeStaticMiddleware.root, ServeStaticMiddleware.options);
         } else {
