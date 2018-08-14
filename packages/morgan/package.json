@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/morgan",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "NestJS Middleware for Morgan",
   "main": "index",
   "repository": {

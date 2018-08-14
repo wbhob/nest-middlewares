@@ -1,8 +1,8 @@
-declare module 'connect-rid' {
-    import { RequestHandler } from 'express';
+import { RequestHandler } from 'express';
 
-    function rid(): RequestHandler;
-    function rid(opts: rid.ConnectRidOptions): RequestHandler;
+declare module 'connect-rid' {
+
+    function rid(opts?: rid.ConnectRidOptions): RequestHandler;
 
     namespace rid {
         interface ConnectRidOptions {

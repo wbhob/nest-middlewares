@@ -1,5 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { RequestHandler } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as bearerToken from 'express-bearer-token';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class ExpressBearerTokenMiddleware implements NestMiddleware {
 
     private static options: bearerToken.Options;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (ExpressBearerTokenMiddleware.options) {
             return bearerToken(ExpressBearerTokenMiddleware.options);
         } else {

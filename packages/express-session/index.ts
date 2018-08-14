@@ -1,5 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { RequestHandler } from 'express';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as expressSession from 'express-session';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class ExpressSessionMiddleware implements NestMiddleware {
 
     private static options: expressSession.SessionOptions;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (ExpressSessionMiddleware.options) {
             return expressSession(ExpressSessionMiddleware.options);
         } else {

@@ -1,6 +1,5 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as connectTimeout from 'connect-timeout';
-import { RequestHandler } from 'express';
 
 @Injectable()
 export class ConnectTimeoutMiddleware implements NestMiddleware {
@@ -13,7 +12,7 @@ export class ConnectTimeoutMiddleware implements NestMiddleware {
     private static timeout: string;
     private static options: connectTimeout.TimeoutOptions;
 
-    public resolve(...args: any[]): RequestHandler {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (ConnectTimeoutMiddleware.timeout) {
             return connectTimeout(ConnectTimeoutMiddleware.timeout, ConnectTimeoutMiddleware.options);
         } else {

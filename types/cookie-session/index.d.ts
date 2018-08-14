@@ -1,3 +1,5 @@
+import { RequestHandler } from 'express';
+
 // Type definitions for cookie-session 2.0
 // Project: https://github.com/expressjs/cookie-session
 // Definitions by: Borislav Zhivkov <https://github.com/borislavjivkov>
@@ -7,7 +9,6 @@
 
 declare module 'cookie-session' {
 
-    import { RequestHandler } from 'express';
     function cookieSession(options?: cookieSession.CookieSessionOptions): RequestHandler;
 
     namespace cookieSession {
