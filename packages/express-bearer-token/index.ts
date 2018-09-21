@@ -5,7 +5,7 @@ import * as bearerToken from 'express-bearer-token';
 export class ExpressBearerTokenMiddleware implements NestMiddleware {
 
     // DELETE THESE LINES IF MIDDLEWARE DOES NOT TAKE OPTIONS
-    public static configure(opts: bearerToken.Options) {
+    public static configure(opts: bearerToken.BearerTokenOptions) {
         this.options = opts;
     }
 
