@@ -21,7 +21,7 @@ import { MorganMiddleware } from '@nest-middlewares/morgan';
 export class MyModule {
     configure(consumer: MiddlewaresConsumer) {
         // IMPORTANT! Call Middleware.configure BEFORE using it for routes
-        HelmetMiddleware.configure( /* options as per helmet docs */ )
+        MorganMiddleware.configure( /* options as per morgan docs */ )
         consumer.apply(MorganMiddleware).forRoutes( /* your routes */ );
     }
 }
