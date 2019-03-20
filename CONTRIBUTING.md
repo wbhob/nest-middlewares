@@ -54,7 +54,7 @@ WHY? Most middlewares will have just one file, so having additional files create
 
 NEVER save `dependencies` to the root package.json, or save `devDependencies` to an individual middleware's `package.json`.
 ALWAYS save package `dependencies` to its respective package, and save `devDependencies` to the root package.json.
-ALWAYS keep `@nestjs/common@^5.0.0` as a peerDependency of EVERY middleware. This will be updated as Nest major versions are incremented.
+ALWAYS keep `@nestjs/common@^6.0.0` as a peerDependency of EVERY middleware. This will be updated as Nest major versions are incremented.
 WHY? The `lerna` tool and NPM will always install `dependencies` from child `package.json` files, but not `devDependencies`. To reduce clutter, only keep packages that middlewares DIRECTLY DEPEND ON in their respective `package.json` files.
 WHY? Making sure that all middlewares have the same Nest dependency ensures consistency for consumers, and ensures the most possible users without breaking changes.
 
