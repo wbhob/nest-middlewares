@@ -1,5 +1,3 @@
-import { resolve } from 'url';
-
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as compression from 'compression';
 
