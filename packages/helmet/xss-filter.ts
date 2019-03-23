@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,11 +10,15 @@ export class HelmetXssFilterMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetXssFilterConfiguration;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public resolve(...args: any[]) {
         if (HelmetXssFilterMiddleware.options) {
             return helmet.xssFilter();
         } else {
             return helmet.xssFilter();
         }
+    }
+
+    public use(req, res, next) {
+      return this.resolve()(req, res, next);
     }
 }
