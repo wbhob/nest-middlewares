@@ -1,4 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
 import * as connectTimeout from 'connect-timeout';
 
 @Injectable()
@@ -12,15 +12,11 @@ export class ConnectTimeoutMiddleware implements NestMiddleware {
     private static timeout: string;
     private static options: connectTimeout.TimeoutOptions;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): MiddlewareFunction {
         if (ConnectTimeoutMiddleware.timeout) {
             return connectTimeout(ConnectTimeoutMiddleware.timeout, ConnectTimeoutMiddleware.options);
         } else {
             throw new Error('ConnectTimeoutMiddleware requires a timeout string in configure.');
         }
-    }
-
-    public use(req, res, next) {
-      return this.resolve()(req, res, next);
     }
 }
