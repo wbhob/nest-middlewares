@@ -1,4 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import * as morgan from 'morgan';
 
 @Injectable()
@@ -16,7 +17,7 @@ export class MorganMiddleware implements NestMiddleware {
     private static options: morgan.Options;
     private static format: string | morgan.FormatFn;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (MorganMiddleware.format) {
             return morgan(MorganMiddleware.format as any, MorganMiddleware.options);
         } else {

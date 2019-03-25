@@ -1,9 +1,10 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import * as helmet from 'helmet';
 
 @Injectable()
 export class HelmetIeNoOpenMiddleware implements NestMiddleware {
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         return helmet.ieNoOpen();
     }
 

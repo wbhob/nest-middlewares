@@ -1,4 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class HelmetXssFilterMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetXssFilterConfiguration;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (HelmetXssFilterMiddleware.options) {
             return helmet.xssFilter();
         } else {

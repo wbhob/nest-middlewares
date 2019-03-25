@@ -1,14 +1,15 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import { initialize } from 'passport';
 
 @Injectable()
 export class PassportInitializeMiddleware implements NestMiddleware {
-    private static options: any;
     public static configure(opts: any) {
         this.options = opts;
     }
+    private static options: any;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         return initialize();
     }
 

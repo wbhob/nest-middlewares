@@ -1,4 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import * as responseTime from 'response-time';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class ResponseTimeMiddleware implements NestMiddleware {
 
     private static options: responseTime.ResponseTimeOptions;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (ResponseTimeMiddleware.options) {
             return responseTime(ResponseTimeMiddleware.options);
         } else {

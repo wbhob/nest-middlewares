@@ -1,4 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import * as compression from 'compression';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class CompressionMiddleware implements NestMiddleware {
 
     private static options: compression.CompressionOptions;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (CompressionMiddleware.options) {
             return compression(CompressionMiddleware.options);
         } else {

@@ -1,4 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { RequestHandler } from '@nestjs/common/interfaces';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class HelmetHpkpMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetHpkpConfiguration;
 
-    public resolve(...args: any[]) {
+    public resolve(...args: any[]): RequestHandler {
         if (HelmetHpkpMiddleware.options) {
             return helmet.hpkp(HelmetHpkpMiddleware.options);
         } else {
