@@ -1,33 +1,55 @@
-import { PassportAuthenticateMiddleware } from './authenticate';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { PassportAuthenticateMiddleware } from './authenticate';
 
 describe('PassportAuthenticateMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: PassportAuthenticateMiddleware;
+    let ProxiedPassportAuthenticateMiddleware;
+    let passportAuthenticateStub: sinon.SinonStub;
+    beforeEach(() => {
+        passportAuthenticateStub = stub();
+        ProxiedPassportAuthenticateMiddleware = proxyquire('./authenticate', {
+            passport: { authenticate: passportAuthenticateStub },
+        }).PassportAuthenticateMiddleware;
+    });
+
     describe('properly configured', () => {
         beforeEach(() => {
-            middleware = new PassportAuthenticateMiddleware();
+            passportAuthenticateStub.returns(stub());
+            middleware = new ProxiedPassportAuthenticateMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve('bearer', { session: false })).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            ProxiedPassportAuthenticateMiddleware.configure('bearer', { session: false });
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(passportAuthenticateStub.called).to.be.true;
         });
         afterEach(() => {
-            PassportAuthenticateMiddleware.configure(undefined);
+            ProxiedPassportAuthenticateMiddleware.configure(undefined, undefined);
         });
     });
 
     describe('not configured', () => {
-        middleware = new PassportAuthenticateMiddleware();
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve('bearer', { session: false })).to.be.an.instanceof(Function);
+        beforeEach(() => {
+            passportAuthenticateStub.returns(stub());
+            middleware = new ProxiedPassportAuthenticateMiddleware();
+        });
+
+        it('should call middleware from calling use', () => {
+            ProxiedPassportAuthenticateMiddleware.configure('bearer', { session: false });
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(passportAuthenticateStub.called).to.be.true;
         });
     });
 });

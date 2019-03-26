@@ -1,40 +1,55 @@
-import { HelmetHstsMiddleware } from './hsts';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { HelmetHstsMiddleware } from './hsts';
 
 describe('HelmetHstsMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: HelmetHstsMiddleware;
-
+    let ProxiedHelmetHstsMiddleware;
+    let helmetHstsStub: sinon.SinonStub;
+    beforeEach(() => {
+        helmetHstsStub = stub();
+        ProxiedHelmetHstsMiddleware = proxyquire('./hsts', {
+            helmet: { hsts: helmetHstsStub },
+        }).HelmetHstsMiddleware;
+    });
     describe('middleware configured', () => {
         beforeEach(() => {
-            HelmetHstsMiddleware.configure({
+            helmetHstsStub.returns(stub());
+            ProxiedHelmetHstsMiddleware.configure({
                 maxAge: 3423,
             });
-            middleware = new HelmetHstsMiddleware();
+            middleware = new ProxiedHelmetHstsMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(helmetHstsStub.called).to.be.true;
         });
         afterEach(() => {
-            HelmetHstsMiddleware.configure(undefined);
+            ProxiedHelmetHstsMiddleware.configure(undefined);
         });
     });
 
     describe('not configured', () => {
         beforeEach(() => {
-            middleware = new HelmetHstsMiddleware();
+            helmetHstsStub.returns(stub());
+            middleware = new ProxiedHelmetHstsMiddleware();
         });
 
-        it('should throw an error for not being configured', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(helmetHstsStub.called).to.be.true;
         });
     });
 });

@@ -1,49 +1,70 @@
-import { CookieParserMiddleware } from './index';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { CookieParserMiddleware } from './index';
 
 describe('CookieParserMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: CookieParserMiddleware;
+    let ProxiedCookieParserMiddleware;
+    let cookieParserStub: sinon.SinonStub;
+    beforeEach(() => {
+        cookieParserStub = stub();
+        ProxiedCookieParserMiddleware = proxyquire('./index', {
+            'cookie-parser': cookieParserStub,
+        }).CookieParserMiddleware;
+    });
     describe('properly configured', () => {
         beforeEach(() => {
-            CookieParserMiddleware.configure('hello', {
+            cookieParserStub.returns(stub());
+            ProxiedCookieParserMiddleware.configure('hello', {
                 decode: (val: string) => {
                     return val;
                 },
             });
-            middleware = new CookieParserMiddleware();
+            middleware = new ProxiedCookieParserMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(cookieParserStub.called).to.be.true;
         });
         afterEach(() => {
-            CookieParserMiddleware.configure(undefined);
+            ProxiedCookieParserMiddleware.configure(undefined);
         });
     });
 
     describe('properly configured with only secret', () => {
         beforeEach(() => {
-            CookieParserMiddleware.configure('hello');
-            middleware = new CookieParserMiddleware();
+            cookieParserStub.returns(stub());
+            ProxiedCookieParserMiddleware.configure('hello');
+            middleware = new ProxiedCookieParserMiddleware();
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(cookieParserStub.called).to.be.true;
         });
     });
 
     describe('not configured', () => {
-        middleware = new CookieParserMiddleware();
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        beforeEach(() => {
+            cookieParserStub.returns(stub());
+            middleware = new ProxiedCookieParserMiddleware();
+        });
+
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(cookieParserStub.called).to.be.true;
         });
     });
 

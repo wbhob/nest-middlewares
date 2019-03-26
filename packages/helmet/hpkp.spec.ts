@@ -1,37 +1,56 @@
-import { HelmetHpkpMiddleware } from './hpkp';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { HelmetHpkpMiddleware } from './hpkp';
 
 describe('HelmetHpkpMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: HelmetHpkpMiddleware;
+    let ProxiedHelmetHpkpMiddleware;
+    let helmetHpkpStub: sinon.SinonStub;
+    beforeEach(() => {
+        helmetHpkpStub = stub();
+        ProxiedHelmetHpkpMiddleware = proxyquire('./hpkp', {
+            helmet: { hpkp: helmetHpkpStub },
+        }).HelmetHpkpMiddleware;
+    });
     describe('properly configured', () => {
         beforeEach(() => {
-            HelmetHpkpMiddleware.configure({
+            helmetHpkpStub.returns(stub());
+            ProxiedHelmetHpkpMiddleware.configure({
                 maxAge: 14353,
                 sha256s: ['hello', 'goodbye'],
             });
-            middleware = new HelmetHpkpMiddleware();
+            middleware = new ProxiedHelmetHpkpMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(helmetHpkpStub.called).to.be.true;
         });
 
         afterEach(() => {
-            HelmetHpkpMiddleware.configure(undefined);
+            ProxiedHelmetHpkpMiddleware.configure(undefined);
         });
     });
 
     describe('improperly configured', () => {
+        beforeEach(() => {
+            helmetHpkpStub.returns(stub());
+            middleware = new ProxiedHelmetHpkpMiddleware();
+        });
+
         it('should throw if improperly configured', () => {
-            expect(middleware.resolve.bind(middleware)).to.be.throw(Error);
+            expect(middleware.use.bind(middleware)).to.be.throw(Error);
         });
     });
 });

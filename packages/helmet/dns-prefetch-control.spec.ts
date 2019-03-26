@@ -1,40 +1,55 @@
-import { HelmetDnsPrefetchControlMiddleware } from './dns-prefetch-control';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { HelmetDnsPrefetchControlMiddleware } from './dns-prefetch-control';
 
 describe('HelmetDnsPrefetchControlMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: HelmetDnsPrefetchControlMiddleware;
-
+    let ProxiedHelmetDnsPrefetchControlMiddleware;
+    let helmetDnsPrefetchControlStub: sinon.SinonStub;
+    beforeEach(() => {
+        helmetDnsPrefetchControlStub = stub();
+        ProxiedHelmetDnsPrefetchControlMiddleware = proxyquire('./dns-prefetch-control', {
+            helmet: { dnsPrefetchControl: helmetDnsPrefetchControlStub },
+        }).HelmetDnsPrefetchControlMiddleware;
+    });
     describe('middleware configured', () => {
         beforeEach(() => {
-            HelmetDnsPrefetchControlMiddleware.configure({
+            helmetDnsPrefetchControlStub.returns(stub());
+            ProxiedHelmetDnsPrefetchControlMiddleware.configure({
                 allow: true,
             });
-            middleware = new HelmetDnsPrefetchControlMiddleware();
+            middleware = new ProxiedHelmetDnsPrefetchControlMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(helmetDnsPrefetchControlStub.called).to.be.true;
         });
         afterEach(() => {
-            HelmetDnsPrefetchControlMiddleware.configure(undefined);
+            ProxiedHelmetDnsPrefetchControlMiddleware.configure(undefined);
         });
     });
 
     describe('not configured', () => {
         beforeEach(() => {
-            middleware = new HelmetDnsPrefetchControlMiddleware();
+            helmetDnsPrefetchControlStub.returns(stub());
+            middleware = new ProxiedHelmetDnsPrefetchControlMiddleware();
         });
 
         it('should throw an error for not being configured', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(helmetDnsPrefetchControlStub.called).to.be.true;
         });
     });
 });

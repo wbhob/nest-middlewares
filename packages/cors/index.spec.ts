@@ -1,27 +1,40 @@
-import { CorsMiddleware } from './index';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { CorsMiddleware } from './index';
 
 describe('CorsMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: CorsMiddleware;
-
+    let ProxiedCorsMiddleware;
+    let corsStub: sinon.SinonStub;
+    beforeEach(() => {
+        corsStub = stub();
+        ProxiedCorsMiddleware = proxyquire('./index', {
+            cors: corsStub,
+        }).CorsMiddleware;
+    });
     describe('middleware configured', () => {
         beforeEach(() => {
-            CorsMiddleware.configure({
+            corsStub.returns(stub());
+            ProxiedCorsMiddleware.configure({
                 maxAge: 4354,
             });
-            middleware = new CorsMiddleware();
+            middleware = new ProxiedCorsMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(corsStub.called).to.be.true;
         });
         afterEach(() => {
             CorsMiddleware.configure(undefined);
@@ -30,11 +43,13 @@ describe('CorsMiddleware', () => {
 
     describe('not configured', () => {
         beforeEach(() => {
-            middleware = new CorsMiddleware();
+            corsStub.returns(stub());
+            middleware = new ProxiedCorsMiddleware();
         });
 
         it('should throw an error for not being configured', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(corsStub.called).to.be.true;
         });
     });
 });

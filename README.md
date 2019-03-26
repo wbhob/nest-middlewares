@@ -5,7 +5,7 @@ Add the most common Express middlewares to your Nest app with one line.
 ## System Requirements
 This packages requires the following:
 - Node.JS 8.0.0 or later
-- @nestjs/core and @nestjs/common 5.0.0 or later
+- @nestjs/core and @nestjs/common 6.0.0 or later
 
 ## Usage
 Take the name of your favorite Express middleware and prefix it with `@nest-middlewares/`.

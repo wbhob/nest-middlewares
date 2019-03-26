@@ -1,34 +1,53 @@
-import { ResponseTimeMiddleware } from './index';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { ResponseTimeMiddleware } from './index';
 
 describe('ResponseTimeMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: ResponseTimeMiddleware;
+    let ProxiedResponseTimeMiddleware;
+    let responseTimeStub: sinon.SinonStub;
+    beforeEach(() => {
+        responseTimeStub = stub();
+        ProxiedResponseTimeMiddleware = proxyquire('./index', {
+            'response-time': responseTimeStub,
+        }).ResponseTimeMiddleware;
+    });
     describe('properly configured', () => {
         beforeEach(() => {
-            ResponseTimeMiddleware.configure({});
-            middleware = new ResponseTimeMiddleware();
+            responseTimeStub.returns(stub());
+            ProxiedResponseTimeMiddleware.configure({});
+            middleware = new ProxiedResponseTimeMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(responseTimeStub.called).to.be.true;
         });
         afterEach(() => {
-            ResponseTimeMiddleware.configure(undefined);
+            ProxiedResponseTimeMiddleware.configure(undefined);
         });
     });
 
     describe('not configured', () => {
-        middleware = new ResponseTimeMiddleware();
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        beforeEach(() => {
+            responseTimeStub.returns(stub());
+            middleware = new ProxiedResponseTimeMiddleware();
+        });
+
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(responseTimeStub.called).to.be.true;
         });
     });
 });

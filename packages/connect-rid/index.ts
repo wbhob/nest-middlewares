@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as rid from 'connect-rid';
 
 @Injectable()
@@ -11,11 +11,12 @@ export class ConnectRidMiddleware implements NestMiddleware {
 
     private static options: rid.ConnectRidOptions;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (ConnectRidMiddleware.options) {
-            return rid(ConnectRidMiddleware.options);
+            rid(ConnectRidMiddleware.options)(req, res, next);
+        } else {
+            rid()(req, res, next);
         }
-        return rid();
-
     }
+
 }

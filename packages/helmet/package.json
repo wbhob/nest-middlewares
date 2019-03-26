@@ -30,6 +30,6 @@
     "helmet": "^3.9.0"
   },
   "peerDependencies": {
-    "@nestjs/common": "^5.0.0"
+    "@nestjs/common": "^6.0.0"
   }
 }

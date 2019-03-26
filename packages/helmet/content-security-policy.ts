@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,9 +10,9 @@ export class HelmetContentSecurityPolicyMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetContentSecurityPolicyConfiguration;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (HelmetContentSecurityPolicyMiddleware.options) {
-            return helmet.contentSecurityPolicy(HelmetContentSecurityPolicyMiddleware.options);
+            helmet.contentSecurityPolicy(HelmetContentSecurityPolicyMiddleware.options)(req, res, next);
         } else {
             throw new Error(
                 'HelmetContentSecurityPolicyMiddleware requires you'
