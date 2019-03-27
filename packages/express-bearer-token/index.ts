@@ -9,7 +9,7 @@ export class ExpressBearerTokenMiddleware implements NestMiddleware {
         this.options = opts;
     }
 
-    private static options: bearerToken.Options;
+    private static options: bearerToken.BearerTokenOptions;
 
     public use(req: any, res: any, next: any) {
         if (ExpressBearerTokenMiddleware.options) {
