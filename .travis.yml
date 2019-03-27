@@ -12,6 +12,5 @@ before_script:
   - npm install
   - lerna bootstrap
 script:
-  - npm run build
   - npm test
 after_success: npm run coverage

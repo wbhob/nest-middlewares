@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "sh ./scripts/build.sh",
-    "test": "nyc --require ts-node/register mocha packages/**/*.spec.ts --reporter spec",
+    "test": "nyc mocha --reporter spec",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "clean": "sh ./scripts/clean.sh",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
@@ -70,9 +70,14 @@
     "include": [
       "packages/**/*.ts"
     ],
+    "extension": [
+      ".ts"
+    ],
     "exclude": [
       "packages/**/*.spec.ts",
-      "packages/**/*.d.ts"
+      "packages/**/*.d.ts",
+      "template",
+      "types"
     ],
     "require": [
       "ts-node/register"
