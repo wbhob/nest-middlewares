@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/express-bearer-token",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "NestJS Middleware for Express Bearer Token",
   "main": "index",
   "repository": {

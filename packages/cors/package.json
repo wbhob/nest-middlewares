@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/cors",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "NestJS Middleware for CORS",
   "main": "index",
   "repository": {

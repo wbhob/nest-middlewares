@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/errorhandler",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "NestJS Middleware for Error Handler",
   "main": "index",
   "repository": {
