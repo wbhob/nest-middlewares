@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/method-override",
-  "version": "6.0.0",
+  "version": "5.0.2",
   "description": "NestJS Middleware for Method Override",
   "main": "index",
   "repository": {
