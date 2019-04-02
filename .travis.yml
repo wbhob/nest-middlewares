@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - lts
+  - lts/*
   - node
 addons:
   firefox: latest
@@ -9,9 +9,8 @@ cache:
     - node_modules
 before_script:
   - npm install -g lerna typescript
-  - npm run clean
+  - npm install
   - lerna bootstrap
 script:
-  - npm run build
   - npm test
 after_success: npm run coverage

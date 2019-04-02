@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as errorhandler from 'errorhandler';
 
 @Injectable()
@@ -10,11 +10,11 @@ export class ErrorHandlerMiddleware implements NestMiddleware {
 
     private static options: errorhandler.Options;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (ErrorHandlerMiddleware.options) {
-            return errorhandler(ErrorHandlerMiddleware.options) as any as MiddlewareFunction;
+            (errorhandler(ErrorHandlerMiddleware.options) as any)(req, res, next);
         } else {
-            return errorhandler() as any as MiddlewareFunction;
+            (errorhandler() as any)(req, res, next);
         }
     }
 }

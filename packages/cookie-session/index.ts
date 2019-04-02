@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as cookieSession from 'cookie-session';
 
 @Injectable()
@@ -11,9 +11,9 @@ export class CookieSessionMiddleware implements NestMiddleware {
 
     private static options: cookieSession.CookieSessionOptions;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (CookieSessionMiddleware.options && CookieSessionMiddleware.options.keys) {
-            return cookieSession(CookieSessionMiddleware.options);
+            cookieSession(CookieSessionMiddleware.options)(req, res, next);
         } else {
             throw new Error('You must pass in `keys` as an option to CookieSessionMiddleware');
         }

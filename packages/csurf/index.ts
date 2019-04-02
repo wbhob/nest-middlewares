@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as csurf from 'csurf';
 import { Request } from 'express';
 
@@ -11,11 +11,11 @@ export class CsurfMiddleware implements NestMiddleware {
 
     private static options: CsurfOptions;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (CsurfMiddleware.options) {
-            return csurf(CsurfMiddleware.options);
+            csurf(CsurfMiddleware.options)(req, res, next);
         } else {
-            return csurf();
+            csurf()(req, res, next);
         }
     }
 }

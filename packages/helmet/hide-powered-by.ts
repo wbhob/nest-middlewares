@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,11 +10,11 @@ export class HelmetHidePoweredByMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetHidePoweredByConfiguration;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (HelmetHidePoweredByMiddleware.options) {
-            return helmet.hidePoweredBy(HelmetHidePoweredByMiddleware.options);
+            helmet.hidePoweredBy(HelmetHidePoweredByMiddleware.options)(req, res, next);
         } else {
-            return helmet.hidePoweredBy();
+            helmet.hidePoweredBy()(req, res, next);
         }
     }
 }

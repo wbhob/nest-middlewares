@@ -1,0 +1,3 @@
+--compilers ts-node/register
+--require source-map-support/register
+packages/**/*.spec.ts

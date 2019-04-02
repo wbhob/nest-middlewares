@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,11 +10,11 @@ export class HelmetExpectCtMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetExpectCtConfiguration;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (HelmetExpectCtMiddleware.options) {
-            return helmet.expectCt(HelmetExpectCtMiddleware.options);
+            helmet.expectCt(HelmetExpectCtMiddleware.options)(req, res, next);
         } else {
-            return helmet.expectCt();
+            helmet.expectCt()(req, res, next);
         }
     }
 }

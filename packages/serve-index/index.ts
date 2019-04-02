@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as serveIndex from 'serve-index';
 
 @Injectable()
@@ -12,9 +12,9 @@ export class ServeIndexMiddleware implements NestMiddleware {
     private static options: serveIndex.Options;
     private static path: string;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (ServeIndexMiddleware.options) {
-            return serveIndex(ServeIndexMiddleware.path, ServeIndexMiddleware.options);
+            serveIndex(ServeIndexMiddleware.path, ServeIndexMiddleware.options)(req, res, next);
         } else {
             throw new Error('ServeIndexMiddleware requires a path in configure.');
         }

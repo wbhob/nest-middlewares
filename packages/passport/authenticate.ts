@@ -1,14 +1,16 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import { authenticate } from 'passport';
 
 @Injectable()
 export class PassportAuthenticateMiddleware implements NestMiddleware {
-    private static options: any;
-    public static configure(opts: any) {
+    public static configure(types: any, opts: any) {
+        this.types = types;
         this.options = opts;
     }
+    private static types: any;
+    private static options: any;
 
-    public resolve(types: string | string[], options: any): MiddlewareFunction {
-        return authenticate(types, options);
+    public use(req: any, res: any, next: any) {
+        authenticate(PassportAuthenticateMiddleware.types, PassportAuthenticateMiddleware.options)(req, res, next);
     }
 }

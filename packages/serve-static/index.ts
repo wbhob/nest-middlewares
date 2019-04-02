@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as serveStatic from 'serve-static';
 
 @Injectable()
@@ -12,9 +12,9 @@ export class ServeStaticMiddleware implements NestMiddleware {
     private static root: string;
     private static options: serveStatic.ServeStaticOptions;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (ServeStaticMiddleware.root) {
-            return serveStatic(ServeStaticMiddleware.root, ServeStaticMiddleware.options);
+            serveStatic(ServeStaticMiddleware.root, ServeStaticMiddleware.options)(req, res, next);
         } else {
             throw new Error('ServeStaticMiddleware requires a root in configure.');
         }

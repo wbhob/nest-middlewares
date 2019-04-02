@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,11 +10,11 @@ export class HelmetFrameguardMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetFrameguardConfiguration;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (HelmetFrameguardMiddleware.options) {
-            return helmet.frameguard(HelmetFrameguardMiddleware.options);
+            return helmet.frameguard(HelmetFrameguardMiddleware.options)(req, res, next);
         } else {
-            return helmet.frameguard();
+            return helmet.frameguard()(req, res, next);
         }
     }
 }

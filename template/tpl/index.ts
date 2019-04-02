@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as middleware from 'middleware';
 
 @Injectable()
@@ -11,11 +11,11 @@ export class MiddlewareMiddleware implements NestMiddleware {
 
     private static options: middleware.Options;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (MiddlewareMiddleware.options) {
-            return middleware(MiddlewareMiddleware.options);
+            middleware(MiddlewareMiddleware.options)(req, res, next);
         } else {
-            return middleware();
+            middleware()(req, res, next);
         }
     }
 }

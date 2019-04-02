@@ -1,4 +1,4 @@
-import { Injectable, MiddlewareFunction, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as helmet from 'helmet';
 
 @Injectable()
@@ -10,9 +10,9 @@ export class HelmetHpkpMiddleware implements NestMiddleware {
 
     private static options: helmet.IHelmetHpkpConfiguration;
 
-    public resolve(...args: any[]): MiddlewareFunction {
+    public use(req: any, res: any, next: any) {
         if (HelmetHpkpMiddleware.options) {
-            return helmet.hpkp(HelmetHpkpMiddleware.options);
+            helmet.hpkp(HelmetHpkpMiddleware.options)(req, res, next);
         } else {
             throw new Error('HPKP must be configured before injection using `configure`.');
         }

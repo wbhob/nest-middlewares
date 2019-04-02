@@ -1,38 +1,53 @@
-import { CookieSessionMiddleware } from './index';
 import { expect } from 'chai';
+import * as proxyquire from 'proxyquire';
+import { stub } from 'sinon';
+import { CookieSessionMiddleware } from './index';
 
 describe('CookieSessionMiddleware', () => {
+    const mockRequest = {};
+    const mockResponse = {};
     let middleware: CookieSessionMiddleware;
+    let ProxiedCookieSessionMiddleware;
+    let cookieSessionStub: sinon.SinonStub;
+    beforeEach(() => {
+        cookieSessionStub = stub();
+        ProxiedCookieSessionMiddleware = proxyquire('./index', {
+            'cookie-session': cookieSessionStub,
+        }).CookieSessionMiddleware;
+    });
     describe('properly configured', () => {
         beforeEach(() => {
-            CookieSessionMiddleware.configure({
+            cookieSessionStub.returns(stub());
+            ProxiedCookieSessionMiddleware.configure({
                 keys: ['hello'],
                 name: 'CookieSession',
             });
-            middleware = new CookieSessionMiddleware();
+            middleware = new ProxiedCookieSessionMiddleware();
         });
 
         it('should be defined', () => {
             expect(middleware).to.not.be.undefined;
         });
 
-        it('should have a function called resolve', () => {
-            expect(middleware.resolve).to.be.instanceof(Function);
+        it('should have a function called use', () => {
+            expect(middleware.use).to.be.instanceof(Function);
         });
 
-        it('should return a middleware from calling resolve', () => {
-            expect(middleware.resolve()).to.be.an.instanceof(Function);
+        it('should call middleware from calling use', () => {
+            middleware.use(mockRequest, mockResponse, stub());
+            expect(cookieSessionStub.called).to.be.true;
         });
     });
 
     describe('not configured', () => {
 
         beforeEach(() => {
-            middleware = new CookieSessionMiddleware();
+            cookieSessionStub.returns(stub());
+            middleware = new ProxiedCookieSessionMiddleware();
         });
 
         it('should throw error when not given keys', () => {
-            expect(middleware.resolve.bind(middleware)).to.throw(Error);
+            expect(middleware.use.bind(middleware)).to.throw(Error);
         });
     });
 
@@ -40,4 +55,3 @@ describe('CookieSessionMiddleware', () => {
         CookieSessionMiddleware.configure(undefined);
     });
 });
-
