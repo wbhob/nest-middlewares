@@ -1,6 +1,7 @@
-<a name="5.0.1"></a>
-## [5.0.1](https://github.com/wbhob/nest-middlewares/compare/v5.0.2...v5.0.1) (2018-08-14)
+<a name="6.0.0"></a>
+## [6.0.0](https://github.com/wbhob/nest-middlewares/compare/v6.0.0...v5.0.2) (2019-04-01)
 
+* **feat:** Update to support Nest v6
 
 
 <a name="5.0.2"></a>
