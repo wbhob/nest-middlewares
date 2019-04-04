@@ -21,7 +21,7 @@ import { ServeFaviconMiddleware } from '@nest-middlewares/serve-favicon';
 export class MyModule {
     configure(consumer: MiddlewaresConsumer) {
         // IMPORTANT! Call Middleware.configure BEFORE using it for routes
-        HelmetMiddleware.configure( /* options as per helmet docs */ )
+        ServeFaviconMiddleware.configure( /* options as per helmet docs */ )
         consumer.apply(ServeFaviconMiddleware).forRoutes( /* your routes */ );
     }
 }
