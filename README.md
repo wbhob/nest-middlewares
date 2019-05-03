@@ -8,7 +8,7 @@ This packages requires the following:
 - @nestjs/core and @nestjs/common 6.0.0 or later
 
 ## Adding Middlewares
-Please do not open issues asking to support a middleware – I've tried to make this project really easy to implement and extend. See [CONTRIBUTING.md] for more information on how to create a new middleware, and I'll merge and release it if it meets the contributing guidelines. Thank you for your contribution.
+Please do not open issues asking to support a middleware – I've tried to make this project really easy to implement and extend. See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on how to create a new middleware, and I'll merge and release it if it meets the contributing guidelines. Thank you for your contribution.
 
 ## Usage
 Take the name of your favorite Express middleware and prefix it with `@nest-middlewares/`.
