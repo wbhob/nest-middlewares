@@ -13,7 +13,8 @@ export class CorsMiddleware implements NestMiddleware {
     public use(req: any, res: any, next: any) {
         if (CorsMiddleware.options) {
             cors(CorsMiddleware.options)(req, res, next);
+        } else {
+            cors()(req, res, next);
         }
-        cors()(req, res, next);
     }
 }
