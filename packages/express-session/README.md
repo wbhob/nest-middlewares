@@ -21,7 +21,7 @@ import { ExpressSessionMiddleware } from '@nest-middlewares/express-session';
 export class MyModule {
     configure(consumer: MiddlewaresConsumer) {
         // IMPORTANT! Call Middleware.configure BEFORE using it for routes
-        HelmetMiddleware.configure( /* options as per helmet docs */ )
+        ExpressSessionMiddleware.configure( /* options as per express-session docs */ )
         consumer.apply(ExpressSessionMiddleware).forRoutes( /* your routes */ );
     }
 }
