@@ -1,7 +1,39 @@
-<a name="6.0.0"></a>
-## [6.0.0](https://github.com/wbhob/nest-middlewares/compare/v6.0.0...v5.0.2) (2019-04-01)
+<a name="5.0.2"></a>
+## [5.0.2](https://github.com/wbhob/nest-middlewares/compare/v6.0.1...v5.0.2) (2019-09-30)
 
-* **feat:** Update to support Nest v6
+
+
+<a name="6.0.1"></a>
+## [6.0.1](https://github.com/wbhob/nest-middlewares/compare/v6.0.0...v6.0.1) (2019-09-30)
+
+
+### Bug Fixes
+
+* **express-session:** fixes a typo in README ([#24](https://github.com/wbhob/nest-middlewares/issues/24)) ([ffc7087](https://github.com/wbhob/nest-middlewares/commit/ffc7087))
+* missing the else case ([868ddd1](https://github.com/wbhob/nest-middlewares/commit/868ddd1))
+
+
+
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/wbhob/nest-middlewares/compare/v5.1.1...v6.0.0) (2019-04-02)
+
+
+### Bug Fixes
+
+* ci coverage ([8df71ab](https://github.com/wbhob/nest-middlewares/commit/8df71ab))
+* ci issue ([b0100d2](https://github.com/wbhob/nest-middlewares/commit/b0100d2))
+* wrong registry ([48b4291](https://github.com/wbhob/nest-middlewares/commit/48b4291))
+
+
+### Features
+
+* migrate to nestjs 6 ([ea745f6](https://github.com/wbhob/nest-middlewares/commit/ea745f6))
+
+
+
+<a name="5.1.1"></a>
+## [5.1.1](https://github.com/wbhob/nest-middlewares/compare/v5.0.2...v5.1.1) (2018-10-19)
+
 
 
 <a name="5.0.2"></a>
