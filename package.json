@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "devDependencies": {
-    "@nestjs/common": "^6.0.0",
+    "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/microservices": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
