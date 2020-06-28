@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^6.0.0"
   },
   "dependencies": {
     "@types/express": "^4.16.0",

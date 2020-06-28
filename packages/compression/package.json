@@ -30,6 +30,6 @@
     "compression": "^1.7.1"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^6.0.0"
   }
 }
