@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/helmet",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "NestJS Middleware for Helmet",
   "main": "index",
   "repository": {
@@ -30,6 +30,6 @@
     "helmet": "^3.9.0"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^9.0.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/csurf",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "NestJS Middleware for CSURF",
   "main": "index",
   "repository": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^9.0.0"
   },
   "dependencies": {
     "@types/csurf": "^1.9.35",

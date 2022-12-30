@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/cors",
-  "version": "6.0.1",
+  "version": "7.0.0",
   "description": "NestJS Middleware for CORS",
   "main": "index",
   "repository": {
@@ -30,6 +30,6 @@
     "cors": "^2.8.4"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^9.0.0"
   }
 }

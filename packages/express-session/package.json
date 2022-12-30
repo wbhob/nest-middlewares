@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/express-session",
-  "version": "6.0.1",
+  "version": "7.0.0",
   "description": "NestJS Middleware for Express Session",
   "main": "index",
   "repository": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^9.0.0"
   },
   "dependencies": {
     "@types/express": "^4.16.0",

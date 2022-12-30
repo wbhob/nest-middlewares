@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/compression",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "NestJS Middleware for Compression",
   "main": "index",
   "repository": {
@@ -30,6 +30,6 @@
     "compression": "^1.7.1"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^9.0.0"
   }
 }

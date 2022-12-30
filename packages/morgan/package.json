@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/morgan",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "NestJS Middleware for Morgan",
   "main": "index",
   "repository": {
@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "peerDependencies": {
-    "@nestjs/common": "^7.0.0"
+    "@nestjs/common": "^9.0.0"
   },
   "dependencies": {
-    "@types/express": "^4.16.0",
-    "@types/express-serve-static-core": "^4.16.0",
-    "@types/morgan": "^1.7.35",
+    "@types/express": "^4.17.0",
+    "@types/express-serve-static-core": "^4.17.0",
+    "@types/morgan": "^1.9.3",
     "morgan": "^1.9.0"
   }
 }
