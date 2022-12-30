@@ -1,20 +1,17 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as helmet from 'helmet';
+import { Injectable, NestMiddleware } from "@nestjs/common";
+import helmet from "helmet";
 
 @Injectable()
 export class HelmetHpkpMiddleware implements NestMiddleware {
+  public static configure(opts: any) {
+    throw new Error(
+      "HPKP middleware has been deprecated. Please remove from dependency injection."
+    );
+  }
 
-    public static configure(opts: helmet.IHelmetHpkpConfiguration) {
-        this.options = opts;
-    }
-
-    private static options: helmet.IHelmetHpkpConfiguration;
-
-    public use(req: any, res: any, next: any) {
-        if (HelmetHpkpMiddleware.options) {
-            helmet.hpkp(HelmetHpkpMiddleware.options)(req, res, next);
-        } else {
-            throw new Error('HPKP must be configured before injection using `configure`.');
-        }
-    }
+  public use(req: any, res: any, next: any) {
+    throw new Error(
+      "HPKP middleware has been deprecated. Please remove from dependency injection."
+    );
+  }
 }
