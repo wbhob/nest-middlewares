@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/helmet",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "NestJS Middleware for Helmet",
   "main": "index",
   "repository": {

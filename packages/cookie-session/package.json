@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/cookie-session",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "NestJS Middleware for Cookie Session",
   "main": "index",
   "repository": {

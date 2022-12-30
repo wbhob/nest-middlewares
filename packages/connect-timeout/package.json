@@ -1,6 +1,6 @@
 {
   "name": "@nest-middlewares/connect-timeout",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "NestJS Middleware for Connect Timeout",
   "main": "index",
   "repository": {
