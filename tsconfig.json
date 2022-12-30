@@ -6,8 +6,9 @@
         "baseUrl": ".",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "moduleResolution": "node",
         "sourceMap": true,
-        "target": "es6",
+        "target": "es2015",
         "typeRoots": [
             "node_modules/@types",
             "types"

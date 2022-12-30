@@ -47,7 +47,7 @@ describe('MorganMiddleware', () => {
         });
     });
     afterEach(() => {
-        MorganMiddleware.configure(undefined);
+        MorganMiddleware.configure(undefined as any);
     });
 
     describe('token generation', () => {

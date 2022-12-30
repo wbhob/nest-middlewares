@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import http from 'http';
+import * as http from 'http';
 import * as morgan from 'morgan';
 
 @Injectable()
