@@ -21,7 +21,7 @@ import { HelmetMiddleware } from '@nest-middlewares/helmet'; // (look around in 
 
 @Module(...)
 export class MyModule {
-    configure(consumer: MiddlewaresConsumer) {
+    configure(consumer: MiddlewareConsumer) {
         // IMPORTANT! Call Middleware.configure BEFORE using it for routes
         HelmetMiddleware.configure( /* options as per helmet docs */ )
         consumer.apply(HelmetMiddleware).forRoutes(
