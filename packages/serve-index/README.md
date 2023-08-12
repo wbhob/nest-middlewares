@@ -21,7 +21,7 @@ import { ServeIndexMiddleware } from '@nest-middlewares/serve-index';
 export class MyModule {
     configure(consumer: MiddlewaresConsumer) {
         // IMPORTANT! Call Middleware.configure BEFORE using it for routes
-        HelmetMiddleware.configure( /* options as per helmet docs */ )
+        ServeIndexMiddleware.configure( /* options */ )
         consumer.apply(ServeIndexMiddleware).forRoutes( /* your routes */ );
     }
 }
