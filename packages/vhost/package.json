@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/wbhob/nest-middlewares#readme",
   "peerDependencies": {
-    "@nestjs/common": "^9.0.0"
+    "@nestjs/common": "^10.0.0"
   },
   "dependencies": {
     "@types/express": "^4.16.0",
     "@types/express-serve-static-core": "^4.16.0",
+    "@types/vhost": "^3.0.6",
     "vhost": "^3.0.2"
   }
 }

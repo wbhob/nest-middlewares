@@ -1,14 +1,12 @@
-import { RequestHandler } from 'express';
+import { RequestHandler } from "express";
 
-declare module 'connect-rid' {
+declare module "connect-rid" {
+  export function rid(opts?: ConnectRidOptions): RequestHandler;
 
-    function rid(opts?: rid.ConnectRidOptions): RequestHandler;
+  export interface ConnectRidOptions {
+    headerName?: string;
+  }
 
-    namespace rid {
-        interface ConnectRidOptions {
-            headerName?: string;
-        }
-    }
-
-    export = rid;
+  // @ts-ignore
+  export = rid;
 }

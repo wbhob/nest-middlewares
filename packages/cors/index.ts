@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as cors from 'cors';
+import cors from 'cors';
 
 @Injectable()
 export class CorsMiddleware implements NestMiddleware {

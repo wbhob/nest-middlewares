@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as expressSession from 'express-session';
+import expressSession from 'express-session';
 
 @Injectable()
 export class ExpressSessionMiddleware implements NestMiddleware {

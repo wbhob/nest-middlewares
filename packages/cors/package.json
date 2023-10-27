@@ -30,6 +30,6 @@
     "cors": "^2.8.4"
   },
   "peerDependencies": {
-    "@nestjs/common": "^9.0.0"
+    "@nestjs/common": "^10.0.0"
   }
 }

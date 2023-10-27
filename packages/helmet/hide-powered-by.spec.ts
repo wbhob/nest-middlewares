@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import * as proxyquire from 'proxyquire';
+import proxyquire from 'proxyquire';
 import { stub } from 'sinon';
 import { HelmetHidePoweredByMiddleware } from './hide-powered-by';
 

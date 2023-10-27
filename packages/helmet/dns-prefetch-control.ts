@@ -1,6 +1,9 @@
 import { Injectable, NestMiddleware } from "@nestjs/common";
 import * as helmet from "helmet";
-import { XDnsPrefetchControlOptions } from "helmet/dist/types/middlewares/x-dns-prefetch-control";
+
+type XDnsPrefetchControlOptions = Parameters<
+  typeof helmet.dnsPrefetchControl
+>[0];
 
 @Injectable()
 export class HelmetDnsPrefetchControlMiddleware implements NestMiddleware {

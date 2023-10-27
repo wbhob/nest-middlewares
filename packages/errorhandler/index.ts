@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as errorhandler from 'errorhandler';
+import errorhandler from 'errorhandler';
 
 @Injectable()
 export class ErrorHandlerMiddleware implements NestMiddleware {

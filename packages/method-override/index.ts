@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response } from 'express';
-import * as methodOverride from 'method-override';
+import methodOverride from 'method-override';
 
 @Injectable()
 export class MethodOverrideMiddleware implements NestMiddleware {

@@ -1,6 +1,7 @@
 import { Injectable, NestMiddleware } from "@nestjs/common";
 import * as helmet from "helmet";
-import { StrictTransportSecurityOptions } from "helmet/dist/types/middlewares/strict-transport-security";
+
+type StrictTransportSecurityOptions = Parameters<typeof helmet.hsts>[0];
 
 @Injectable()
 export class HelmetHstsMiddleware implements NestMiddleware {

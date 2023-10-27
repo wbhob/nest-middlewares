@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as serveStatic from 'serve-static';
+import serveStatic from 'serve-static';
 
 @Injectable()
 export class ServeStaticMiddleware implements NestMiddleware {

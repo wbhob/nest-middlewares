@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as serveFavicon from 'serve-favicon';
+import serveFavicon from 'serve-favicon';
 
 @Injectable()
 export class ServeFaviconMiddleware implements NestMiddleware {

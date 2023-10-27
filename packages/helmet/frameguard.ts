@@ -1,6 +1,7 @@
 import { Injectable, NestMiddleware } from "@nestjs/common";
 import * as helmet from "helmet";
-import { XFrameOptionsOptions } from "helmet/dist/types/middlewares/x-frame-options";
+
+type XFrameOptionsOptions = Parameters<typeof helmet.frameguard>[0];
 
 @Injectable()
 export class HelmetFrameguardMiddleware implements NestMiddleware {

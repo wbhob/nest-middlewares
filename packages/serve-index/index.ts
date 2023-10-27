@@ -1,5 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as serveIndex from 'serve-index';
+import serveIndex from 'serve-index';
 
 @Injectable()
 export class ServeIndexMiddleware implements NestMiddleware {

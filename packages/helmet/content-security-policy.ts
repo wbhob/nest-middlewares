@@ -1,6 +1,9 @@
 import { Injectable, NestMiddleware } from "@nestjs/common";
 import * as helmet from "helmet";
-import { ContentSecurityPolicyOptions } from "helmet/dist/types/middlewares/content-security-policy";
+
+type ContentSecurityPolicyOptions = Parameters<
+  typeof helmet.contentSecurityPolicy
+>[0];
 
 @Injectable()
 export class HelmetContentSecurityPolicyMiddleware implements NestMiddleware {

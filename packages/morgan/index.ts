@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import * as http from 'http';
-import * as morgan from 'morgan';
+import morgan from 'morgan';
 
 @Injectable()
 export class MorganMiddleware implements NestMiddleware {
