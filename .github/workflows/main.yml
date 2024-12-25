@@ -32,9 +32,7 @@ jobs:
         pnpm add -g lerna typescript
 
     - name: Install dependencies
-      run: |
-        pnpm install
-        lerna bootstrap
+      run: pnpm install
         
     - name: Run tests
       run: pnpm test
