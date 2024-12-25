@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., patch, minor, major, or specific version)'
+        required: true
+        default: 'patch'
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Use Node.js LTS
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install global dependencies
+      run: |
+        npm install -g lerna typescript
+
+    - name: Install dependencies
+      run: |
+        npm install
+        lerna bootstrap
+
+    - name: Run tests
+      run: npm test
+
+    - name: Build packages
+      run: npm run build
+
+    - name: Generate changelog
+      run: npm run changelog
+      
+    - name: Configure Git
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+
+    - name: Bump version and publish
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        lerna version ${{ github.event.inputs.version }} --yes --no-push
+        lerna publish from-package --yes
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Publish packages
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+      run: lerna publish from-package --yes
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/v')
+      with:
+        body_path: CHANGELOG.md
+        files: |
+          packages/**/*.tgz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -20,19 +20,24 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'pnpm'
         
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: latest
+
     - name: Install global dependencies
       run: |
-        npm install -g lerna typescript
+        pnpm add -g lerna typescript
 
     - name: Install dependencies
       run: |
-        npm install
+        pnpm install
         lerna bootstrap
         
     - name: Run tests
-      run: npm test
+      run: pnpm test
       
     - name: Upload coverage
-      run: npm run coverage
+      run: pnpm run coverage
