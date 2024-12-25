@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [lts/*, latest]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install global dependencies
+      run: |
+        npm install -g lerna typescript
+
+    - name: Install dependencies
+      run: |
+        npm install
+        lerna bootstrap
+        
+    - name: Run tests
+      run: npm test
+      
+    - name: Upload coverage
+      run: npm run coverage
