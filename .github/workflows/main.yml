@@ -7,11 +7,11 @@ on:
     branches: [ main, master ]
 
 jobs:
-  test:
+  test-node:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [lts/*, latest]
+        node-version: [18, 20, lts/*, latest]
 
     steps:
     - uses: actions/checkout@v4
@@ -41,3 +41,32 @@ jobs:
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: pnpm run coverage
+
+  test-bun:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install dependencies
+      run: bun install
+        
+    - name: Run tests
+      run: bun test
+
+  test-deno:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Deno
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: vx.x.x
+
+    - name: Run tests
+      run: deno test
